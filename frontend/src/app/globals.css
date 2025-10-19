@@ -2,8 +2,140 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-dark-bg text-light-text scroll-smooth;
+    @apply bg-dark text-light font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary text-dark;
   }
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 15, 31, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00e0ff 0%, #0074f0 100%);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00e0ff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold text-light;
+}
+
+a {
+  @apply text-light hover:text-primary transition-colors;
+}
+
+.gradient-border {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  background-clip: padding-box;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(90deg, #00e0ff, #0074f0, #00e0ff);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Fade-in animation (for section transitions) */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+/* Soft floating glow animation */
+@keyframes float-glow {
+  0% {
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-15px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+}
+
+.glow-float {
+  animation: float-glow 4s ease-in-out infinite;
+}
+
+@keyframes hologram-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px #00E0FFaa);
+  }
+  50% {
+    filter: drop-shadow(0 0 25px #00E0FFFF);
+  }
+}
+
+.glow-float {
+  animation: hologram-glow 3s ease-in-out infinite;
+}
+
+button, a {
+  cursor: none; /* opsional kalau mau efek futuristik */
+}
+
+html, body {
+  cursor: none; /* sembunyikan kursor default */
+}
+
+/* smooth transition untuk warna neon */
+body {
+  background-color: #0A0F1F;
+  transition: background 0.3s ease-in-out;
+}
+
+/* layer blending efek aurora */
+.react-bg {
+  mix-blend-mode: screen;
+}
+
+
