@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  dtech_fe:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: dtech_fe
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
