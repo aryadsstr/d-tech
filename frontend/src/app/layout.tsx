@@ -33,6 +33,24 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "D-Tech",
+            url: "https://d-tech.dev",
+            logo: "https://d-tech.dev/icon.png",
+            sameAs: [
+              "https://www.linkedin.com/in/aryadsstr",
+              "https://github.com/aryadsstr"
+            ],
+            description: "D-Tech provides fullstack, system analyst, and DevOps services.",
+          }),
+        }}
+      />
+
       <body className="bg-dark text-light transition-colors duration-300">
         <NeonCursor />
         <Providers>
