@@ -34,10 +34,14 @@ services:
       - "3000"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dtech.rule=Host(`d-tech.dev`,`www.d-tech.dev`)"
+      - "traefik.http.routers.dtech.rule=Host(`d-tech.dev`) || Host(`www.d-tech.dev`)"
       - "traefik.http.routers.dtech.entrypoints=websecure"
       - "traefik.http.routers.dtech.tls.certresolver=letsencrypt"
       - "traefik.http.services.dtech.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.redirect-www.redirectregex.regex=^https://www\\.(.*)"
+      - "traefik.http.middlewares.redirect-www.redirectregex.replacement=https://$1"
+      - "traefik.http.middlewares.redirect-www.redirectregex.permanent=true"
+      - "traefik.http.routers.dtech.middlewares=redirect-www"
     networks:
       - web
     restart: unless-stopped
