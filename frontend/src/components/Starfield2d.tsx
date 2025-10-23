@@ -7,10 +7,25 @@ export default function Starfield2D() {
   useEffect(() => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
-    let w = (canvas.width = window.innerWidth);
-    let h = (canvas.height = window.innerHeight);
 
-    const numStars = Math.floor(w / 3); // jumlah bintang dinamis
+    const resizeCanvas = () => {
+      // Pastikan ukuran canvas sesuai viewport sebenarnya
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.scale(dpr, dpr);
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    window.addEventListener("orientationchange", resizeCanvas);
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    // Jumlah bintang dinamis tergantung lebar layar
+    const numStars = Math.floor(w < 768 ? w / 2 : w / 1.5);
+
     const stars = Array.from({ length: numStars }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
@@ -18,7 +33,7 @@ export default function Starfield2D() {
     }));
 
     const draw = () => {
-      ctx.fillStyle = "rgba(10, 15, 31, 0.5)";
+      ctx.fillStyle = "rgba(10, 15, 31, 0.4)";
       ctx.fillRect(0, 0, w, h);
 
       ctx.fillStyle = "#00E0FF";
@@ -39,23 +54,28 @@ export default function Starfield2D() {
           ctx.fill();
         }
       });
+
       requestAnimationFrame(draw);
     };
+
     draw();
 
-    const handleResize = () => {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("orientationchange", resizeCanvas);
     };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 -z-10 bg-dark"
-      style={{ width: "100%", height: "100%" }}
+      className="absolute inset-0 -z-10"
+      style={{
+        width: "100vw",
+        height: "100vh",
+        objectFit: "cover",
+        backgroundColor: "#0A0F1F",
+      }}
     />
   );
 }

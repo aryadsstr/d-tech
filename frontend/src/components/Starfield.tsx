@@ -13,7 +13,7 @@ export default function Starfield() {
 
   useEffect(() => {
     const width = window.innerWidth;
-    setUse3D(width > 768); // di atas 768px pakai 3D
+    setUse3D(width > 1); // di atas 768px pakai 3D
   }, []);
 
   return use3D ? <Starfield3D /> : <Starfield2D />;
