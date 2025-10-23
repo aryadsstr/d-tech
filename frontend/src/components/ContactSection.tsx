@@ -8,8 +8,31 @@ export default function ContactSection() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("Sending...");
-    await new Promise((r) => setTimeout(r, 1000));
-    setStatus("✅ Message sent!");
+
+    const form = e.currentTarget;
+    const name = (form[0] as HTMLInputElement).value;
+    const email = (form[1] as HTMLInputElement).value;
+    const message = (form[2] as HTMLTextAreaElement).value;
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("Message sent!");
+        form.reset();
+      } else {
+        setStatus("Failed to send.");
+      }
+    } catch (err) {
+      setStatus("Error sending message.");
+      console.error(err);
+    }
   }
 
   return (
@@ -35,7 +58,7 @@ export default function ContactSection() {
         />
         <MagneticButton>
           {status || "Send Message"}
-      </MagneticButton>
+        </MagneticButton>
       </form>
     </section>
   );

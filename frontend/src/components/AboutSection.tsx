@@ -11,9 +11,9 @@ export default function AboutSection() {
 
       <Reveal delay={0.2}>
         <p className="text-light/80 dark:text-light/60 max-w-3xl mx-auto leading-relaxed text-lg">
-          Hi, I’m <span className="text-primary">Arya Disastra</span> — a System Analyst,
-          Fullstack Developer, and DevOps Engineer. I specialize in designing scalable,
-          maintainable, and efficient systems across the stack.
+          Hi, I’m <span className="text-primary">Arya Disastra</span> — a System Analyst, Fullstack Developer, and DevOps Engineer who loves building scalable, maintainable, and efficient systems from backend to frontend.
+          With over <span className="text-primary">5 years of experience in software development</span>, I’ve worked on various government, enterprise, and public platforms using Laravel, Go (Golang), Vue.js, and Flutter, supported by Docker, Nginx, and CI/CD pipelines for seamless deployments.
+          I have a strong background in system architecture design, API integration, and DevOps automation, ensuring every product I build is reliable and production-ready.
         </p>
       </Reveal>
     </section>

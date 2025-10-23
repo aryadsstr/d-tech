@@ -33,6 +33,7 @@ function Stars() {
         <PointMaterial
           transparent
           color="#00E0FF"
+          opacity={0.3} 
           size={0.015}
           sizeAttenuation
           depthWrite={false}

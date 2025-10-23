@@ -5,17 +5,72 @@ const projects = [
   {
     name: "WHO Partners Platform",
     desc: "A collaboration platform for pandemic data management.",
-    tech: ["Laravel", "Vue", "Docker"],
+    tech: [".Net", "Angular", "Azure"],
   },
   {
     name: "Smart City Kendari",
     desc: "IoT & dashboard system for municipal service integration.",
-    tech: ["Go", "PostgreSQL", "Redis"],
+    tech: ["Codeigniter", "Mysql", "Nginx"],
+  },
+  {
+    name: "Smart City Batu",
+    desc: "IoT & dashboard system for municipal service integration.",
+    tech: ["Codeigniter", "Mysql", "Nginx"],
   },
   {
     name: "E-Office Kemenhan",
     desc: "Digital workflow management for Ministry of Defense.",
     tech: ["Laravel", "REST API", "Bootstrap"],
+  },
+  {
+    name: "Sisperdi (Sistem Persuratan Digital) Kab. Bandung Barat",
+    desc: "Digital workflow management for Bandung Barat Gouverment.",
+    tech: ["Laravel", "REST API", "Bootstrap"],
+  },
+  {
+    name: "Sidatal (Sistem Pendataan Digital) Kab. Bandung Barat",
+    desc: "Digital workflow management human resource for Bandung Barat Gouverment.",
+    tech: ["Laravel", "REST API", "Bootstrap"],
+  },
+  {
+    name: "Sivespa (Sistem Verifikasi Anggaran) Kab. Bandung Barat",
+    desc: "Digital workflow management budget allocation for Bandung Barat Gouverment.",
+    tech: ["Laravel", "REST API", "Bootstrap"],
+  },
+  {
+    name: "E-Absensi",
+    desc: "Digital workflow management Absensi.",
+    tech: ["Codeigniter", "REST API", "Bootstrap"],
+  },
+  {
+    name: "E-Retribusi",
+    desc: "Digital workflow management retributioins.",
+    tech: ["Laravel", "REST API", "Bootstrap"],
+  },
+  {
+    name: "Zisnu",
+    desc: "Platform for management Zakat Infaq Sodaqoh and Wakaf",
+    tech: ["Laravel", "REST API", "Bootstrap"],
+  },
+  {
+    name: "WMS Uchimura - Web & Mobile",
+    desc: "Platform for management inventory at factory warehouse PT. Uchimura",
+    tech: ["Codeigniter", "REST API", "Bootstrap", "Java", "SQLite"],
+  },
+  {
+    name: "WMS Sanipak - Web & Mobile",
+    desc: "Platform for management inventory at factory warehouse PT. Sanipak Indonesia",
+    tech: ["Codeigniter", "REST API", "Bootstrap", "Java", "SQLite"],
+  },
+  {
+    name: "New Engine System",
+    desc: "Platform for management part & engine at PT. Toyota Motor Manufacturing Indonesia",
+    tech: [".Net", "REST API"],
+  },
+  {
+    name: "Jobtomori",
+    desc: "Platform for management human resource at PT. Pertamina",
+    tech: [".Net", "REST API"],
   },
 ];
 
